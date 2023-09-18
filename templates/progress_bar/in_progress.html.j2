@@ -1,0 +1,19 @@
+<div hx-trigger="done" hx-get="/progress_bar/job" hx-swap="outerHTML" hx-target="this">
+    <h3 role="status" id="pblabel" tabindex="-1" autofocus>
+        {{ 'Running' if not complete else 'Complete' }}
+    </h3>
+
+    <div hx-get="/progress_bar/job/progress" hx-trigger="{{ 'every 600ms' if not complete else 'none' }}"
+        hx-target="this" hx-swap="innerHTML">
+        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ percentage}}"
+            aria-labelledby="pblabel">
+            <div id="pb" class="progress-bar" style="width:{{ percentage }}%">
+            </div>
+        </div>
+    </div>
+    {% if complete %}
+    <button id="restart-btn" class="btn" hx-post="/progress_bar/start" classes="add show:600ms">
+        Restart Job
+    </button>
+    {% endif %}
+</div>

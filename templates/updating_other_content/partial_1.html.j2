@@ -1,0 +1,29 @@
+<h5>Contacts</h5>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="contacts-table">
+        {% for contact in contacts %}
+        <tr>
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.email }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h5>Add A Contact</h5>
+<form hx-post="/updating_other_content/contacts1" hx-target="#table-and-form">
+    <label>
+        Name
+        <input name="name" type="text">
+    </label>
+    <label>
+        Email
+        <input name="email" type="email">
+    </label>
+</form>

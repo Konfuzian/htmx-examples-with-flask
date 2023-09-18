@@ -1,0 +1,5 @@
+<div hx-target="this" hx-swap="outerHTML" class="valid">
+    <label>Email Address</label>
+    <input name="email" hx-post="/inline_validation/contact/email" hx-indicator="#ind" value="{{ email }}">
+    <img id="ind" src="/static/img/bars.svg" class="htmx-indicator" />
+</div>

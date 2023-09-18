@@ -1,0 +1,5 @@
+{% extends "base.html.j2" %}
+
+{% block content %}
+<button hx-get="/dialogs_custom/modal" hx-target="body" hx-swap="beforeend">Open a Modal</button>
+{% endblock %}

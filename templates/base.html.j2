@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}htmx Examples{% endblock %}</title>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.26/dist/css/uikit.min.css" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <style>
+        .left-wrapper {
+            float: left;
+            width: 15%;
+            padding: 1%;
+            border-right: 1px solid lightblue;
+        }
+
+        .right-wrapper {
+            float: right;
+            width: 85%;
+            padding: 1%;
+        }
+
+        /* TODO: each example should bring it's own styles, instead of putting them all here.
+        But we cannot use jinja blocks for that if we use hx-boost/ajax for getting the examples,
+        because the whole response goes into the hx-target, although the styles have to go here instead.
+        We could use swap-oob or similar to do this. */
+
+        /* for the delete_row example */
+        tr.htmx-swapping td {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+
+        /* for the lazy_loading example */
+        .htmx-settling img {
+            opacity: 0;
+        }
+
+        img {
+            transition: opacity 300ms ease-in;
+        }
+
+        /* for the inline_validation example */
+        .error-message {
+            color: red;
+        }
+
+        .error input {
+            box-shadow: 0 0 3px #CC0000;
+        }
+
+        .valid input {
+            box-shadow: 0 0 3px #36cc00;
+        }
+
+        /* for the progress_bar example */
+        .progress {
+            height: 20px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+        }
+
+        .progress-bar {
+            float: left;
+            width: 0%;
+            height: 100%;
+            font-size: 12px;
+            line-height: 20px;
+            color: #fff;
+            text-align: center;
+            background-color: #337ab7;
+            -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+            -webkit-transition: width .6s ease;
+            -o-transition: width .6s ease;
+            transition: width .6s ease;
+        }
+
+        /* for the animations/color_swap example */
+        .smooth {
+            transition: all 1s ease-in;
+        }
+
+        /* for the animations/fade_out_on_swap example */
+        .fade-me-out.htmx-swapping {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+
+        /* for the animations/fade_in_on_addition example */
+        #fade-me-in.htmx-added {
+            opacity: 0;
+        }
+
+        #fade-me-in {
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
+
+        /* for the animations/in_flight_animation example */
+        form.htmx-request {
+            opacity: .5;
+            transition: opacity 300ms linear;
+        }
+
+        /* for the animations/class_tools example */
+        .demo.faded {
+            opacity: .3;
+        }
+
+        .demo {
+            opacity: 1;
+            transition: opacity ease-in 900ms;
+        }
+
+        /* for the animation/view_transition example */
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+        }
+
+        @keyframes fade-out {
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes slide-from-right {
+            from {
+                transform: translateX(90px);
+            }
+        }
+
+        @keyframes slide-to-left {
+            to {
+                transform: translateX(-90px);
+            }
+        }
+
+        .slide-it {
+            view-transition-name: slide-it;
+        }
+
+        ::view-transition-old(slide-it) {
+            animation: 180ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+                600ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+        }
+
+        ::view-transition-new(slide-it) {
+            animation: 420ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+                600ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+        }
+
+        /* for the dialogs_custom example */
+        #modal {
+            /* Underlay covers entire screen. */
+            position: fixed;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+
+            /* Flexbox centers the .modal-content vertically and horizontally */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            /* Animate when opening */
+            animation-name: fadeIn;
+            animation-duration: 150ms;
+            animation-timing-function: ease;
+        }
+
+        #modal>.modal-underlay {
+            /* underlay takes up the entire viewport. This is only required if you want to click to dismiss the popup */
+            position: absolute;
+            z-index: -1;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+        }
+
+        #modal>.modal-content {
+            /* Position visible dialog near the top of the window */
+            margin-top: 10vh;
+
+            /* Sizing for visible dialog */
+            width: 80%;
+            max-width: 600px;
+
+            /* Display properties for visible dialog*/
+            border: solid 1px #999;
+            border-radius: 8px;
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
+            background-color: white;
+            padding: 20px;
+
+            /* Animate when opening */
+            animation-name: zoomIn;
+            animation-duration: 150ms;
+            animation-timing-function: ease;
+        }
+
+        #modal.closing {
+            /* Animate when closing */
+            animation-name: fadeOut;
+            animation-duration: 150ms;
+            animation-timing-function: ease;
+        }
+
+        #modal.closing>.modal-content {
+            /* Animate when closing */
+            animation-name: zoomOut;
+            animation-duration: 150ms;
+            animation-timing-function: ease;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes zoomOut {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(0.9);
+            }
+        }
+    </style>
+</head>
+
+<body hx-boost="true">
+    {% block navbar %}
+    {% endblock %}
+
+    {% block content %}
+    <div class="right-wrapper" id="content">
+        <!-- content goes here -->
+    </div>
+    {% endblock %}
+
+    <!-- htmx -->
+    <script src="https://unpkg.com/htmx.org@1.9.5"
+        integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO"
+        crossorigin="anonymous"></script>
+    <!-- htmx extensions -->
+    <script src="https://unpkg.com/htmx.org/dist/ext/class-tools.js"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/path-deps.js"></script>
+    <!-- hyperscript -->
+    <script src="https://unpkg.com/hyperscript.org@0.9.11"></script>
+    <!-- sweet alerts -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.26/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.26/dist/js/uikit-icons.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <!-- Sortable -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
+</body>
+
+</html>

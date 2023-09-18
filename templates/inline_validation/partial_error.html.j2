@@ -1,0 +1,6 @@
+<div hx-target="this" hx-swap="outerHTML" class="error">
+    <label>Email Address</label>
+    <input name="email" hx-post="/inline_validation/contact/email" hx-indicator="#ind" value="{{ email }}">
+    <img id="ind" src="/static/img/bars.svg" class="htmx-indicator" />
+    <div class='error-message'>That email is already taken. Please enter another email.</div>
+</div>

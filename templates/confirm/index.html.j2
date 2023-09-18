@@ -1,0 +1,8 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<button hx-get="/confirmed"
+        _="on htmx:confirm(issueRequest)
+             halt the event
+             call Swal.fire({title: 'Confirm', text:'Do you want to continue?'})
+             if result.isConfirmed issueRequest()">
+  Click Me
+</button>
