@@ -1,6 +1,3 @@
-{% extends "base.html.j2" %}
-
-{% block content %}
 <h3>Before</h3>
 <form id="binaryFormBefore" enctype="multipart/form-data" hx-post='/preserving_file_inputs/upload' hx-swap="outerHTML"
     hx-target="#binaryFormBefore">
@@ -14,4 +11,3 @@
     hx-target="this">
     <button type="submit">Submit</button>
 </form>
-{% endblock %}

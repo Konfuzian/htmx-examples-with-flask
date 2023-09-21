@@ -1,6 +1,3 @@
-{% extends "base.html.j2" %}
-
-{% block content %}
 <button hx-get="/dialogs_bootstrap/modal" hx-target="#modals-here" hx-trigger="click" data-bs-toggle="modal" data-bs-target="#modals-here"
     class="btn btn-primary">Open Modal</button>
 
@@ -9,4 +6,3 @@
         <div class="modal-content"></div>
     </div>
 </div>
-{% endblock %}
