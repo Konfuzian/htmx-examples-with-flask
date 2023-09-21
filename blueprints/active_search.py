@@ -114,7 +114,7 @@ def index():
 
 @bp.route("/search", methods=("POST",))
 def search():
-    def results(search):
+    def hits(search):
         return filter(
             lambda x: any(
                 (
@@ -126,5 +126,5 @@ def search():
             data,
         )
 
-    results = results(request.form["search"].lower())
+    results = hits(request.form["search"].lower())
     return render_template("active_search/search_results.html.j2", results=results)
