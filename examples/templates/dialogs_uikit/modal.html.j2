@@ -1,0 +1,15 @@
+<div id="modal" class="uk-modal" style="display:block;">
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">Modal Dialog</h2>
+        <p>This modal dialog was loaded dynamically by HTMX.</p>
+
+        <form _="on submit take .uk-open from #modal">
+            <div class="uk-margin">
+                <input class="uk-input" placeholder="What is Your Name?">
+            </div>
+            <button type="button" class="uk-button uk-button-primary">Save Changes</button>
+            <button id="cancelButton" type="button" class="uk-button uk-button-default"
+                _="on click take .uk-open from #modal wait 200ms then remove #modal">Close</button>
+        </form>
+    </div>
+</div>

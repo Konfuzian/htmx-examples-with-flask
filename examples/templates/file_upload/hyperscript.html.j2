@@ -1,0 +1,8 @@
+<form hx-encoding='multipart/form-data' hx-post='/file_upload/upload'
+    _='on htmx:xhr:progress(loaded, total) set #progress_hyperscript.value to (loaded/total)*100'>
+    <input type='file' name='file'>
+    <button>
+        Upload
+    </button>
+    <progress id='progress_hyperscript' value='0' max='100'></progress>
+</form>

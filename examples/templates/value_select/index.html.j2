@@ -1,0 +1,18 @@
+<h3>Pick A Make/Model</h3>
+<form>
+  <div>
+    <label>Make</label>
+    <select name="make" hx-get="/value_select/models" hx-target="#models" hx-indicator=".htmx-indicator">
+      <option value="audi">Audi</option>
+      <option value="toyota">Toyota</option>
+      <option value="bmw">BMW</option>
+    </select>
+  </div>
+  <div>
+    <label>Model</label>
+    <select id="models" name="model">
+      {% include "value_select/partial_models.html.j2" %}
+    </select>
+    <img class="htmx-indicator" width="20" src="/static/img/bars.svg">
+  </div>
+</form>

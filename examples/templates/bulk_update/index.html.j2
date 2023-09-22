@@ -1,0 +1,26 @@
+<form id="checked-contacts">
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            {% for contact in contacts %}
+            <tr class="">
+                <td><input type='checkbox' name='ids' value='{{ loop.index0 }}'></td>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.status }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div hx-target="#checked-contacts">
+        <button class="btn" hx-put="/bulk_update/activate">Activate</button>
+        <button class="btn" hx-put="/bulk_update/deactivate">Deactivate</button>
+    </div>
+</form>

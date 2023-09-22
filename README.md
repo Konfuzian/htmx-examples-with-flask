@@ -1,40 +1,25 @@
+# HTMX Examples with Flask
 
-# Description
+Here, I implemented the examples from <https://htmx.org/examples/> as a Flask app.
 
-Here, I implemented the examples from https://htmx.org/examples/ as a Flask app.
+Most of the backend code is implemented using Blueprints and found in the
+`examples/blueprints` directory.
 
-Most of the backend code is implemented using Blueprints and found in the `blueprints` directory.
-
-For each example, there is a Python file in that directory, and a folder in the `templates` directory for the HTML.
-
-# Instructions
+For each example, there is a Python file in that directory, and a folder in the
+`examples/templates` directory for the HTML.
 
 ## Setup
 
-Create the virtual environment:
+```shell
+poetry install
+```
 
-`python -m venv env`
-
-
-Activate the virtual environment (Windows):
-
-`.\env\Scripts\activate`
-
-
-Install the packages:
-
-`pip install -r requirements.txt`
-
-## Running the server
-
-Activate the virtual environment (Windows):
-
-`.\env\Scripts\activate`
-
+## Usage
 
 Run the server (with auto reload and debugging):
 
-`python app.py --debug`
+```shell
+poetry run server --debug
+```
 
-
-The server will run on http://127.0.0.1:5000.
+The server will run on <http://127.0.0.1:5000>.
