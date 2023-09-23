@@ -13,7 +13,6 @@ flask = "^2.3.3"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.9.1"
-mypy = "^1.5.1"
 ruff = "^0.0.290"
 
 [build-system]
@@ -22,16 +21,6 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 server = "examples.app:main"
-
-[tool.mypy]
-packages = "examples"
-disallow_untyped_defs = true
-disallow_any_unimported = true
-no_implicit_optional = true
-check_untyped_defs = true
-warn_return_any = true
-warn_unused_ignores = true
-show_error_codes = true
 
 [tool.black]
 line-length = 88
