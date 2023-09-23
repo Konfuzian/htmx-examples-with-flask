@@ -1,0 +1,22 @@
+<div id="wrapper">
+    <h3>Signup Form</h3>
+    <p>
+        Enter an email into the input below and on tab out it will be validated. Only "test@test.com" will pass.
+    </p>
+    <form hx-post="/inline_validation/contact" hx-target="#wrapper" hx-swap="outerHTML">
+        <div hx-target="this" hx-swap="outerHTML">
+            <label>Email Address</label>
+            <input name="email" hx-post="/inline_validation/contact/email" hx-indicator="#ind">
+            <img id="ind" src="/static/img/bars.svg" class="htmx-indicator" />
+        </div>
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control" name="firstName">
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" name="lastName">
+        </div>
+        <button class="btn btn-default" disabled>Submit</button>
+    </form>
+</div>

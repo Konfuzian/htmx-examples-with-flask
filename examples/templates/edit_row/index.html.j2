@@ -1,0 +1,34 @@
+<table class="table edit-row-example">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody hx-target="closest tr" hx-swap="outerHTML">
+        {% for contact in contacts %}
+        <form>
+            <tr>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.email }}</td>
+                <td>
+                    <button class="btn btn-danger" hx-get="/edit_row/contact/{{ contact.id }}/edit" hx-trigger="edit" _="on click
+                         if .editing is not empty
+                           swal({title: 'Already Editing',
+                                 buttons: [true, 'Yep, Edit This Row!'],
+                                 text:'Hey!  You are already editing a row!  Do you want to cancel that edit and continue?'})
+                           if the result is null
+                             halt
+                           end
+                           send cancel to .editing
+                         end
+                         trigger edit">
+                        Edit
+                    </button>
+                </td>
+            </tr>
+        </form>
+        {% endfor %}
+    </tbody>
+</table>

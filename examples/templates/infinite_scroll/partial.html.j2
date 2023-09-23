@@ -1,0 +1,11 @@
+{% for contact in contacts %}
+{% if loop.last %}
+<tr hx-get="/infinite_scroll/contacts/?page={{ page + 1 }}" hx-trigger="revealed" hx-swap="afterend">
+{% else %}
+<tr class="">
+{% endif %}
+    <td>{{ contact.name }}</td>
+    <td>{{ contact.email }}</td>
+    <td>{{ contact.id }}</td>
+</tr>
+{% endfor %}

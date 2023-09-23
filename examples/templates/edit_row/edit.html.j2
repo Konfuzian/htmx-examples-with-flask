@@ -1,0 +1,12 @@
+<tr hx-trigger='cancel' class='editing' hx-get="/edit_row/contact/{{ contact.id }}">
+    <td><input name='name' value='{{ contact.name }}'></td>
+    <td><input name='email' value='{{ contact.email }}'></td>
+    <td>
+        <button class="btn btn-danger" hx-get="/edit_row/contact/{{ contact.id }}">
+            Cancel
+        </button>
+        <button class="btn btn-danger" hx-put="/edit_row/contact/{{ contact.id }}" hx-include="closest tr">
+            Save
+        </button>
+    </td>
+</tr>

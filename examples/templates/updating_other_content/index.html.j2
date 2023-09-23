@@ -1,0 +1,143 @@
+<h3>Solution 1: Expand the Target</h3>
+<div id="table-and-form">
+    <h5>Contacts</h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="contacts-table1">
+            {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.email }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h5>Add A Contact</h5>
+    <form hx-post="/updating_other_content/contacts1" hx-target="#table-and-form">
+        <label>
+            Name
+            <input name="name" type="text">
+        </label>
+        <label>
+            Email
+            <input name="email" type="email">
+        </label>
+        <input type="submit">
+    </form>
+</div>
+
+<br>
+<hr>
+<br>
+
+<h3>Solution 2: Out of Band Responses</h3>
+<h5>Contacts</h5>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody id="contacts-table2">
+        {% for contact in contacts %}
+        <tr>
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.email }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h5>Add A Contact</h5>
+<form hx-post="/updating_other_content/contacts2">
+    <label>
+        Name
+        <input name="name" type="text">
+    </label>
+    <label>
+        Email
+        <input name="email" type="email">
+    </label>
+    <input type="submit">
+</form>
+
+<!-- because we are using table rows here, we must enable template fragment parsing -->
+<script>
+    htmx.config.useTemplateFragments = true;
+</script>
+
+<br>
+<hr>
+<br>
+
+<h3>Solution 3: Triggering Events</h3>
+<h5>Contacts</h5>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody id="contacts-table3" hx-get="/updating_other_content/contacts3/table" hx-trigger="newContact from:body">
+        {% for contact in contacts %}
+        <tr>
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.email }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h5>Add A Contact</h5>
+<form hx-post="/updating_other_content/contacts3">
+    <label>
+        Name
+        <input name="name" type="text">
+    </label>
+    <label>
+        Email
+        <input name="email" type="email">
+    </label>
+    <input type="submit">
+</form>
+
+<br>
+<hr>
+<br>
+
+<h3>Solution 4: Using the Path Dependencies Extension</h3>
+<h5>Contacts</h5>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody id="contacts-table4" hx-get="/updating_other_content/contacts4/table" hx-ext="path-deps"
+        hx-trigger="path-deps" path-deps="/updating_other_content/*">
+        {% for contact in contacts %}
+        <tr>
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.email }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h5>Add A Contact</h5>
+<form hx-post="/updating_other_content/contacts4">
+    <label>
+        Name
+        <input name="name" type="text">
+    </label>
+    <label>
+        Email
+        <input name="email" type="email">
+    </label>
+    <input type="submit">
+</form>

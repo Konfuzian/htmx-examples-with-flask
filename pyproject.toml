@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "htmx-examples-with-flask"
+version = "0.1.0"
+description = "My implementation of the htmx examples from the official website, using Flask."
+authors = ["Konfuzian"]
+readme = "README.md"
+packages = [{include = "examples"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+click = "^8.1.7"
+flask = "^2.3.3"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.9.1"
+ruff = "^0.0.290"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+server = "examples.app:main"
+
+[tool.black]
+line-length = 88
+target-version = ["py311",]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+select = [
+    "F",    # pyflakes
+    "E",    # pycodestyle Error
+    "W",    # pycodestle Warning
+    "I",    # isort
+    "B",    # bugbear
+    "C90",  # mccabe
+    "N",    # pep8-naming
+]

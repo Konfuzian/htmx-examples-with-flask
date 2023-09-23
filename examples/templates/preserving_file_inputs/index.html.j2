@@ -1,0 +1,13 @@
+<h3>Before</h3>
+<form id="binaryFormBefore" enctype="multipart/form-data" hx-post='/preserving_file_inputs/upload' hx-swap="outerHTML"
+    hx-target="#binaryFormBefore">
+    <input type="file" name="binaryFile"><br>
+    <button type="submit">Submit</button>
+</form>
+
+<h3>After</h3>
+<input form="binaryFormAfter" type="file" name="binaryFile">
+<form id="binaryFormAfter" enctype="multipart/form-data" hx-post='/preserving_file_inputs/upload' hx-swap="outerHTML"
+    hx-target="this">
+    <button type="submit">Submit</button>
+</form>

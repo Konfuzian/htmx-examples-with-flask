@@ -1,0 +1,19 @@
+<!-- note that we have to return tbody>tr>td here instead of just tr>td like in the example from the website, otherwise it doesn't work! -->
+<tbody hx-swap-oob="beforeend:#contacts-table2">
+    <tr>
+        <td>{{ contact.name }}</td>
+        <td>{{ contact.email }}</td>
+    </tr>
+</tbody>
+
+<form hx-post="/contacts2">
+    <label>
+        Name
+        <input name="name" type="text">
+    </label>
+    <label>
+        Email
+        <input name="email" type="email">
+    </label>
+    <input type="submit">
+</form>
