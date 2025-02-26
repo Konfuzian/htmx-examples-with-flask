@@ -11,7 +11,8 @@ For each example, there is a Python file in that directory, and a folder in the
 ## Setup
 
 ```shell
-poetry install
+uv init
+uv sync
 ```
 
 ## Usage
@@ -19,7 +20,7 @@ poetry install
 Run the server (with auto reload and debugging):
 
 ```shell
-poetry run server --debug
+uv run -m examples.app --debug
 ```
 
 The server will run on <http://127.0.0.1:5000>.
