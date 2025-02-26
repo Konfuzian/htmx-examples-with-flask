@@ -31,7 +31,6 @@ from examples.blueprints import (
 
 app = Flask(__name__)
 app.jinja_env.undefined = StrictUndefined
-
 app.register_blueprint(click_to_edit.bp)
 app.register_blueprint(bulk_update.bp)
 app.register_blueprint(click_to_load.bp)

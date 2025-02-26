@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}htmx Examples{% endblock %}</title>
-    <!-- UIkit CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.26/dist/css/uikit.min.css" />
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            {% block title %}htmx Examples{% endblock %}
+        </title>
+        <!-- UIkit CSS -->
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/uikit@3.16.26/dist/css/uikit.min.css" />
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+              rel="stylesheet"
+              integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+              crossorigin="anonymous">
+        <style>
         .left-wrapper {
             float: left;
             width: 15%;
@@ -266,40 +269,34 @@
                 transform: scale(0.9);
             }
         }
-    </style>
-</head>
-
-<body hx-boost="true">
-    {% block navbar %}
-    {% endblock %}
-
-    {% block content %}
-    <div class="right-wrapper" id="content">
-        <!-- content goes here -->
-    </div>
-    {% endblock %}
-
-    <!-- htmx -->
-    <script src="https://unpkg.com/htmx.org@1.9.5"
-        integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO"
-        crossorigin="anonymous"></script>
-    <!-- htmx extensions -->
-    <script src="https://unpkg.com/htmx.org/dist/ext/class-tools.js"></script>
-    <script src="https://unpkg.com/htmx.org/dist/ext/path-deps.js"></script>
-    <!-- hyperscript -->
-    <script src="https://unpkg.com/hyperscript.org@0.9.11"></script>
-    <!-- sweet alerts -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- UIkit JS -->
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.26/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.26/dist/js/uikit-icons.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
-    <!-- Sortable -->
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-
-</body>
-
+        </style>
+    </head>
+    <body hx-boost="true">
+        {% block navbar %}{% endblock %}
+        {% block content %}
+            <div class="right-wrapper" id="content">
+                <!-- content goes here -->
+            </div>
+        {% endblock %}
+        <!-- htmx -->
+        <script src="https://unpkg.com/htmx.org@1.9.5"
+                integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO"
+                crossorigin="anonymous"></script>
+        <!-- htmx extensions -->
+        <script src="https://unpkg.com/htmx.org/dist/ext/class-tools.js"></script>
+        <script src="https://unpkg.com/htmx.org/dist/ext/path-deps.js"></script>
+        <!-- hyperscript -->
+        <script src="https://unpkg.com/hyperscript.org@0.9.11"></script>
+        <!-- sweet alerts -->
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.26/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.26/dist/js/uikit-icons.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+                crossorigin="anonymous"></script>
+        <!-- Sortable -->
+        <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    </body>
 </html>

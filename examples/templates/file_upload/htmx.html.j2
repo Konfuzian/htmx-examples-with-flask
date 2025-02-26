@@ -1,8 +1,8 @@
-<form id='form' hx-encoding='multipart/form-data' hx-post='/file_upload/upload'>
+<form id='form'
+      hx-encoding='multipart/form-data'
+      hx-post='/file_upload/upload'>
     <input type='file' name='file'>
-    <button>
-        Upload
-    </button>
+    <button>Upload</button>
     <progress id='progress_htmx' value='0' max='100'></progress>
 </form>
 <script>

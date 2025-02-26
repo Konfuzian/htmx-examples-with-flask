@@ -28,7 +28,7 @@ uv run -m examples.app --debug
 Use these tools before pushing to the repo:
 
 ```shell
-uvx isort examples && uvx black examples --line-length 100 && uvx ruff check examples --fix
+uvx isort examples && uvx black examples --line-length 100 && uvx ruff check examples --fix && uvx djlint --extension=j2 examples --reformat
 ```
 
 The server will run on <http://127.0.0.1:5000>.

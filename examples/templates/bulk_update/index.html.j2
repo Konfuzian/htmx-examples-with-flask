@@ -10,12 +10,14 @@
         </thead>
         <tbody id="tbody">
             {% for contact in contacts %}
-            <tr class="">
-                <td><input type='checkbox' name='ids' value='{{ loop.index0 }}'></td>
-                <td>{{ contact.name }}</td>
-                <td>{{ contact.email }}</td>
-                <td>{{ contact.status }}</td>
-            </tr>
+                <tr class="">
+                    <td>
+                        <input type='checkbox' name='ids' value='{{ loop.index0 }}'>
+                    </td>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.status }}</td>
+                </tr>
             {% endfor %}
         </tbody>
     </table>
