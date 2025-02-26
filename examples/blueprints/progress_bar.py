@@ -1,9 +1,7 @@
 from math import floor
 from random import random
-from time import sleep
 
-from flask import Blueprint, make_response, render_template, request
-
+from flask import Blueprint, make_response, render_template
 
 bp = Blueprint("progress_bar", __name__, url_prefix="/progress_bar")
 
@@ -24,7 +22,9 @@ def start():
 
 @bp.route("/job")
 def job():
-    return render_template("progress_bar/in_progress.html.j2", percentage=percentage, complete=percentage >= 100)
+    return render_template(
+        "progress_bar/in_progress.html.j2", percentage=percentage, complete=percentage >= 100
+    )
 
 
 @bp.route("/job/progress")
@@ -32,7 +32,9 @@ def progress():
     global percentage
     percentage += floor(33 * random())
     res = make_response(
-        render_template("progress_bar/progress_bar.html.j2", percentage=percentage, complete=percentage >= 100)
+        render_template(
+            "progress_bar/progress_bar.html.j2", percentage=percentage, complete=percentage >= 100
+        )
     )
     res.headers.set("HX-Trigger", "done")
     return res

@@ -2,10 +2,32 @@ import click
 from flask import Flask, render_template
 from jinja2 import StrictUndefined
 
-from examples.blueprints import click_to_load, dialogs_browser, value_select, click_to_edit, dialogs_custom, \
-    preserving_file_inputs, bulk_update, confirm, sortable, infinite_scroll, dialogs_uikit, edit_row, tabs_hyperscript, \
-    progress_bar, updating_other_content, lazy_loading, file_upload, animations, active_search, dialogs_bootstrap, \
-    delete_row, inline_validation, tabs_hateoas, keyboard_shortcuts
+from examples.blueprints import (
+    active_search,
+    animations,
+    bulk_update,
+    click_to_edit,
+    click_to_load,
+    confirm,
+    delete_row,
+    dialogs_bootstrap,
+    dialogs_browser,
+    dialogs_custom,
+    dialogs_uikit,
+    edit_row,
+    file_upload,
+    infinite_scroll,
+    inline_validation,
+    keyboard_shortcuts,
+    lazy_loading,
+    preserving_file_inputs,
+    progress_bar,
+    sortable,
+    tabs_hateoas,
+    tabs_hyperscript,
+    updating_other_content,
+    value_select,
+)
 
 app = Flask(__name__)
 app.jinja_env.undefined = StrictUndefined
@@ -36,21 +58,16 @@ app.register_blueprint(updating_other_content.bp)
 app.register_blueprint(confirm.bp)
 
 
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template('index.html.j2')
+    return render_template("index.html.j2")
 
 
 @click.command()
-@click.option(
-    "--debug",
-    is_flag=True,
-    default=False,
-    help="enable auto reload and debugging"
-)
+@click.option("--debug", is_flag=True, default=False, help="enable auto reload and debugging")
 def main(debug: bool):
     app.run(debug=debug)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template
 
-
 bp = Blueprint("sortable", __name__, url_prefix="/sortable")
 
 

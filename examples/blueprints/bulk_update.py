@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, request
 
-
 bp = Blueprint("bulk_update", __name__, url_prefix="/bulk_update")
 
 data = [

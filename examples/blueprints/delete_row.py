@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template
 
-
 bp = Blueprint("delete_row", __name__, url_prefix="/delete_row")
 
 data = {

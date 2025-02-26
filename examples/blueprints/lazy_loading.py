@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template
 
-
 bp = Blueprint("lazy_loading", __name__, url_prefix="/lazy_loading")
 
 
