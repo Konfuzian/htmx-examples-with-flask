@@ -14,7 +14,7 @@ uv sync
 Run the server (with auto reload and debugging):
 
 ```shell
-uv run -m src.app --debug
+uv run -m app --debug
 ```
 
 ## Development
