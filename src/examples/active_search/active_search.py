@@ -1,6 +1,12 @@
+import os
 from flask import Blueprint, render_template, request
 
-bp = Blueprint("active_search", __name__, url_prefix="/active_search")
+bp = Blueprint(
+    "active_search",
+    __name__,
+    url_prefix="/active_search", 
+    template_folder="templates",
+)
 
 data = [
     {
@@ -543,7 +549,7 @@ data = [
 
 @bp.route("/")
 def index():
-    return render_template("active_search/index.html.j2")
+    return render_template("active_search.html.j2")
 
 
 @bp.route("/search", methods=("POST",))
@@ -561,4 +567,4 @@ def search():
         )
 
     results = hits(request.form["search"].lower())
-    return render_template("active_search/search_results.html.j2", results=results)
+    return render_template("search_results.html.j2", results=results)
