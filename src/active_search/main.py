@@ -1,10 +1,10 @@
-import os
+
 from flask import Blueprint, render_template, request
 
 bp = Blueprint(
     "active_search",
     __name__,
-    url_prefix="/active_search", 
+    url_prefix="/active_search",
     template_folder="templates",
 )
 

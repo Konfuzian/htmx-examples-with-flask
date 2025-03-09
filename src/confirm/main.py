@@ -1,7 +1,11 @@
 from flask import Blueprint, render_template
 
-bp = Blueprint("confirm", __name__, url_prefix="/confirm",
-    template_folder="templates",)
+bp = Blueprint(
+    "confirm",
+    __name__,
+    url_prefix="/confirm",
+    template_folder="templates",
+)
 
 
 @bp.route("/")

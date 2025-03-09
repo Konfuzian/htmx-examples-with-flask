@@ -1,7 +1,11 @@
 from flask import Blueprint, render_template, request
 
-bp = Blueprint("value_select", __name__, url_prefix="/value_select",
-    template_folder="templates",)
+bp = Blueprint(
+    "value_select",
+    __name__,
+    url_prefix="/value_select",
+    template_folder="templates",
+)
 
 data = {
     "audi": {"models": ["A1", "A4", "A6"]},

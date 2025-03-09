@@ -14,6 +14,9 @@
     <div>
         <label>Model</label>
         <select id="models" name="model">{% include "value_select/partial_models.html.j2" %}</select>
-        <img class="htmx-indicator" src="{{ url_for('static', filename='img/bars.svg') }}" alt="Bars" width="20">
+        <img class="htmx-indicator"
+             src="{{ url_for('static', filename='img/bars.svg') }}"
+             alt="Bars"
+             width="20">
     </div>
 </form>

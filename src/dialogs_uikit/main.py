@@ -1,7 +1,11 @@
 from flask import Blueprint, render_template
 
-bp = Blueprint("dialogs_uikit", __name__, url_prefix="/dialogs_uikit",
-    template_folder="templates",)
+bp = Blueprint(
+    "dialogs_uikit",
+    __name__,
+    url_prefix="/dialogs_uikit",
+    template_folder="templates",
+)
 
 
 @bp.route("/")

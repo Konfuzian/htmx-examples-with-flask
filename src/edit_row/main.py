@@ -1,7 +1,11 @@
 from flask import Blueprint, render_template, request
 
-bp = Blueprint("edit_row", __name__, url_prefix="/edit_row",
-    template_folder="templates",)
+bp = Blueprint(
+    "edit_row",
+    __name__,
+    url_prefix="/edit_row",
+    template_folder="templates",
+)
 
 data = [
     {

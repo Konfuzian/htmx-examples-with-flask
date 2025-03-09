@@ -1,7 +1,11 @@
 from flask import Blueprint, render_template, request
 
-bp = Blueprint("inline_validation", __name__, url_prefix="/inline_validation",
-    template_folder="templates",)
+bp = Blueprint(
+    "inline_validation",
+    __name__,
+    url_prefix="/inline_validation",
+    template_folder="templates",
+)
 
 
 def validate_email(email):

@@ -4,6 +4,9 @@
            hx-post="/inline_validation/contact/email"
            hx-indicator="#ind"
            value="{{ email }}">
-    <img id="ind" class="htmx-indicator" src="{{ url_for('static', filename='img/bars.svg') }}" alt="Bars">
+    <img id="ind"
+         class="htmx-indicator"
+         src="{{ url_for('static', filename='img/bars.svg') }}"
+         alt="Bars">
     <div class='error-message'>That email is already taken. Please enter another email. You must take test@test.com.</div>
 </div>

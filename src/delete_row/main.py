@@ -1,7 +1,11 @@
 from flask import Blueprint, render_template
 
-bp = Blueprint("delete_row", __name__, url_prefix="/delete_row",
-    template_folder="templates",)
+bp = Blueprint(
+    "delete_row",
+    __name__,
+    url_prefix="/delete_row",
+    template_folder="templates",
+)
 
 data = {
     0: {

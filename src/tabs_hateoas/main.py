@@ -1,7 +1,11 @@
 from flask import Blueprint, render_template
 
-bp = Blueprint("tabs_hateoas", __name__, url_prefix="/tabs_hateoas",
-    template_folder="templates",)
+bp = Blueprint(
+    "tabs_hateoas",
+    __name__,
+    url_prefix="/tabs_hateoas",
+    template_folder="templates",
+)
 
 
 @bp.route("/")

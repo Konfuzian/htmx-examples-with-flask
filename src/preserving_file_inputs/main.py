@@ -1,7 +1,11 @@
 from flask import Blueprint, render_template
 
-bp = Blueprint("preserving_file_inputs", __name__, url_prefix="/preserving_file_inputs",
-    template_folder="templates",)
+bp = Blueprint(
+    "preserving_file_inputs",
+    __name__,
+    url_prefix="/preserving_file_inputs",
+    template_folder="templates",
+)
 
 
 @bp.route("/")
