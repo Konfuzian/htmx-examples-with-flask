@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template
 
-bp = Blueprint("file_upload", __name__, url_prefix="/file_upload")
+bp = Blueprint("file_upload", __name__, url_prefix="/file_upload",
+    template_folder="templates",)
 
 
 @bp.route("/")

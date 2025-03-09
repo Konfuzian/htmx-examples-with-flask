@@ -2,7 +2,7 @@ import click
 from flask import Flask, render_template
 from jinja2 import StrictUndefined
 
-from src.examples.active_search import active_search
+from src.examples.active_search.main import bp as active_search
 # from examples.animations import animations
 # from examples.bulk_update import bulk_update
 # from examples.click_to_edit import click_to_edit
@@ -38,7 +38,7 @@ app.jinja_env.undefined = StrictUndefined
 # app.register_blueprint(lazy_loading.bp)
 # app.register_blueprint(inline_validation.bp)
 # app.register_blueprint(infinite_scroll.bp)
-app.register_blueprint(active_search.bp)
+app.register_blueprint(active_search)
 # app.register_blueprint(progress_bar.bp)
 # app.register_blueprint(value_select.bp)
 # app.register_blueprint(animations.bp)

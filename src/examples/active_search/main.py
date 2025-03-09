@@ -549,7 +549,8 @@ data = [
 
 @bp.route("/")
 def index():
-    return render_template("active_search.html.j2")
+    # TODO: we should render the full list on load, not nothing (that's confusing)
+    return render_template("active_search/index.html.j2")
 
 
 @bp.route("/search", methods=("POST",))
@@ -567,4 +568,4 @@ def search():
         )
 
     results = hits(request.form["search"].lower())
-    return render_template("search_results.html.j2", results=results)
+    return render_template("active_search/search_results.html.j2", results=results)

@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template
 
-bp = Blueprint("keyboard_shortcuts", __name__, url_prefix="/keyboard_shortcuts")
+bp = Blueprint("keyboard_shortcuts", __name__, url_prefix="/keyboard_shortcuts",
+    template_folder="templates",)
 
 
 @bp.route("/")

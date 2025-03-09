@@ -2,7 +2,8 @@ from time import sleep
 
 from flask import Blueprint, render_template
 
-bp = Blueprint("animations", __name__, url_prefix="/animations")
+bp = Blueprint("animations", __name__, url_prefix="/animations",
+    template_folder="templates",)
 
 
 @bp.route("/")

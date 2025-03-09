@@ -4,7 +4,8 @@ import time
 
 from flask import Blueprint, render_template, request
 
-bp = Blueprint("infinite_scroll", __name__, url_prefix="/infinite_scroll")
+bp = Blueprint("infinite_scroll", __name__, url_prefix="/infinite_scroll",
+    template_folder="templates",)
 
 
 def generate_contacts(page=1, page_size=20):

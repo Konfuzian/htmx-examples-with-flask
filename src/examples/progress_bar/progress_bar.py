@@ -3,7 +3,8 @@ from random import random
 
 from flask import Blueprint, make_response, render_template
 
-bp = Blueprint("progress_bar", __name__, url_prefix="/progress_bar")
+bp = Blueprint("progress_bar", __name__, url_prefix="/progress_bar",
+    template_folder="templates",)
 
 percentage = 0
 

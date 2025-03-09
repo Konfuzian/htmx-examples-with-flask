@@ -3,7 +3,8 @@ import string
 
 from flask import Blueprint, render_template, request
 
-bp = Blueprint("click_to_load", __name__, url_prefix="/click_to_load")
+bp = Blueprint("click_to_load", __name__, url_prefix="/click_to_load",
+    template_folder="templates",)
 
 
 def generate_contacts(page=1, page_size=10):

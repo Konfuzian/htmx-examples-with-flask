@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request
 
-bp = Blueprint("click_to_edit", __name__, url_prefix="/click_to_edit")
+bp = Blueprint("click_to_edit", __name__, url_prefix="/click_to_edit",
+    template_folder="templates",)
 
 data = [
     {

@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template
 
-bp = Blueprint("tabs_hyperscript", __name__, url_prefix="/tabs_hyperscript")
+bp = Blueprint("tabs_hyperscript", __name__, url_prefix="/tabs_hyperscript",
+    template_folder="templates",)
 
 
 @bp.route("/")

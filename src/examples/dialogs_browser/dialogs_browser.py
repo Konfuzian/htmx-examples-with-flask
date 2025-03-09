@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request
 
-bp = Blueprint("dialogs_browser", __name__, url_prefix="/dialogs_browser")
+bp = Blueprint("dialogs_browser", __name__, url_prefix="/dialogs_browser",
+    template_folder="templates",)
 
 
 @bp.route("/")
