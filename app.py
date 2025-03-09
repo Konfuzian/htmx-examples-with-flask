@@ -2,30 +2,30 @@ import click
 from flask import Flask, render_template
 from jinja2 import StrictUndefined
 
-from src.examples.active_search.main import bp as active_search
-from src.examples.animations.main import bp as animations
-from src.examples.bulk_update.main import bp as bulk_update
-from src.examples.click_to_edit.main import bp as click_to_edit
-from src.examples.click_to_load.main import bp as click_to_load
-from src.examples.confirm.main import bp as confirm
-from src.examples.delete_row.main import bp as delete_row
-from src.examples.dialogs_bootstrap.main import bp as dialogs_bootstrap
-from src.examples.dialogs_browser.main import bp as dialogs_browser
-from src.examples.dialogs_custom.main import bp as dialogs_custom
-from src.examples.dialogs_uikit.main import bp as dialogs_uikit
-from src.examples.edit_row.main import bp as edit_row
-from src.examples.file_upload.main import bp as file_upload
-from src.examples.infinite_scroll.main import bp as infinite_scroll
-from src.examples.inline_validation.main import bp as inline_validation
-from src.examples.keyboard_shortcuts.main import bp as keyboard_shortcuts
-from src.examples.lazy_loading.main import bp as lazy_loading
-from src.examples.preserving_file_inputs.main import bp as preserving_file_inputs
-from src.examples.progress_bar.main import bp as progress_bar
-from src.examples.sortable.main import bp as sortable
-from src.examples.tabs_hateoas.main import bp as tabs_hateoas
-from src.examples.tabs_hyperscript.main import bp as tabs_hyperscript
-from src.examples.updating_other_content.main import bp as updating_other_content
-from src.examples.value_select.main import bp as value_select
+from src.active_search.main import bp as active_search
+from src.animations.main import bp as animations
+from src.bulk_update.main import bp as bulk_update
+from src.click_to_edit.main import bp as click_to_edit
+from src.click_to_load.main import bp as click_to_load
+from src.confirm.main import bp as confirm
+from src.delete_row.main import bp as delete_row
+from src.dialogs_bootstrap.main import bp as dialogs_bootstrap
+from src.dialogs_browser.main import bp as dialogs_browser
+from src.dialogs_custom.main import bp as dialogs_custom
+from src.dialogs_uikit.main import bp as dialogs_uikit
+from src.edit_row.main import bp as edit_row
+from src.file_upload.main import bp as file_upload
+from src.infinite_scroll.main import bp as infinite_scroll
+from src.inline_validation.main import bp as inline_validation
+from src.keyboard_shortcuts.main import bp as keyboard_shortcuts
+from src.lazy_loading.main import bp as lazy_loading
+from src.preserving_file_inputs.main import bp as preserving_file_inputs
+from src.progress_bar.main import bp as progress_bar
+from src.sortable.main import bp as sortable
+from src.tabs_hateoas.main import bp as tabs_hateoas
+from src.tabs_hyperscript.main import bp as tabs_hyperscript
+from src.updating_other_content.main import bp as updating_other_content
+from src.value_select.main import bp as value_select
 
 
 app = Flask(__name__)

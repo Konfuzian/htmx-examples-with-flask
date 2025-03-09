@@ -1,6 +1,3 @@
 <div hx-get="/lazy_loading/graph" hx-trigger="load">
-    <img alt="Result loading..."
-         class="htmx-indicator"
-         width="150"
-         src="/static/img/bars.svg" />
+    <img class="htmx-indicator" src="{{ url_for('static', filename='img/bars.svg') }}" alt="Result loading..." width="150">
 </div>
