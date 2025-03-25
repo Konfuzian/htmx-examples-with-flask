@@ -5,7 +5,6 @@ Here, I implemented the examples from <https://htmx.org/examples/> as a Flask ap
 ## Setup
 
 ```shell
-uv init
 uv sync
 ```
 
