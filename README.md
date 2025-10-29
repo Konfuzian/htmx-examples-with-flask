@@ -16,6 +16,8 @@ Run the server (with auto reload and debugging):
 uv run -m app --debug
 ```
 
+The server will run on <http://127.0.0.1:5000>.
+
 ## Development
 
 Use these tools before pushing to the repo:
@@ -24,4 +26,4 @@ Use these tools before pushing to the repo:
 uvx isort src && uvx black src --line-length 100 && uvx ruff check src --fix && uvx djlint --extension=j2 src --reformat
 ```
 
-The server will run on <http://127.0.0.1:5000>.
+
